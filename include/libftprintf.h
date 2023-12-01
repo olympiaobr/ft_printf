@@ -10,12 +10,12 @@
 # include <limits.h>
 # include "./libft/includes/libftprintf.h"
 
-void	ft_pr_char(char character, int *len);
-void	ft_pr_str(char *str, int *len);
-void	ft_pr_int(int number, int *len);
-void	ft_pr_unsigned(unsigned int nbr, int *len);
-void	ft_pr_hex(unsigned int num, int *len, char format);
-void	ft_pr_ptr(size_t ptr, int *len);
+void	ft_prtchar(char character, int *len);
+void	ft_prtstr(char *str, int *len);
+void	ft_print(int nb, int *len)
+void	ft_prtunsint(unsigned int nbr, int *len);
+int		ft_prthex(unsigned long long hx, char *base)
+void	ft_prtptr(void *ptr, int *len)
 
 int	ft_printf(const char *str, ...);
 

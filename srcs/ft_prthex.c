@@ -40,14 +40,14 @@ int ft_prthex(unsigned long long hx, char *base)
 OR
 #include <unistd.h>
 
-int ft_print_hex(unsigned long long hx, char *base)
+int ft_prthex(unsigned long long hx, char *base)
 {
     int printed_chars;
 
     printed_chars = 0;
     if (hx >= 16)
     {
-        printed_chars = ft_print_hex(hx / 16, base);
+        printed_chars = ft_prthex(hx / 16, base);
     }
     write(1, &base[hx % 16], 1);
     return (printed_chars + 1);
