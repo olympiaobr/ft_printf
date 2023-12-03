@@ -1,16 +1,20 @@
 NAME	= libftprintf.a
 
-LIBFT	= libft
+HEAD	= ./include
 
-LIB		= libftprint.h -L./libft -lft
-
-SRCS	= ./srcs/ft_printf.c
+SRCS	= ./srcs/ft_printf.c \
+			./srcs/ft_prtchar.c \
+			./srcs/ft_prthex.c \
+			./srcs/ft_prtint.c \
+			./srcs/ft_prtptr.c \
+			./srcs/ft_prtstr.c \
+			./srcs/ft_prtunsint.c \
 
 OBJS	= $(SRCS:.c=.o)
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -I $(HEAD)
 
 RM		= rm -f
 
@@ -21,16 +25,14 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		$(AR) $(NAME) $(OBJS)
 
-.o.c:
-	@$(CC) $(CFLAGS) -I $(LIB) -c $< -o $(<:.c=.o)
+%.o: %.c
+        $(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
-	@make clean -C $(LIBFT)
 
 fclean:	clean
 	$(RM) $(NAME)
-	@make fclean -C $(LIBFT)
 
 re:		fclean all
 

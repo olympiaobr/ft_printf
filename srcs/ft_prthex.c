@@ -1,3 +1,5 @@
+#include "ft_printf.h"
+
 static void ft_print_hex_char(unsigned long long hx, char *base)
 {
     int index;
@@ -38,7 +40,6 @@ int ft_prthex(unsigned long long hx, char *base)
 
 
 OR
-#include <unistd.h>
 
 int ft_prthex(unsigned long long hx, char *base)
 {

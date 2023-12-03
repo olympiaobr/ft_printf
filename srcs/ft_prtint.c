@@ -1,6 +1,6 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void ft_print(int nb, int *len)
+void ft_prtint(int nb, int *len)
 {
     if (nb == -2147483648)
     {
