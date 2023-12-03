@@ -1,19 +1,19 @@
 #include "ft_printf.h"
 
-int conv_case(char f, va_list args, int *total_printed_chars)
+int conv_case(char f, va_list args, int *char_sum)
 {
     if (f == 'c')
-        return (ft_prtchar(va_arg(args, int), total_printed_chars));
+        return (ft_prtchar(va_arg(args, int), char_sum));
     else if (f == 's')
-        return (ft_prtstr(va_arg(args, char*), total_printed_chars));
+        return (ft_prtstr(va_arg(args, char*), char_sum));
     else if (f == 'p')
-        return (ft_prtptr(va_arg(args, void*), total_printed_chars));
+        return (ft_prtptr(va_arg(args, void*), char_sum));
     else if (f == 'd' || f == 'i')
-        return (ft_prtint(va_arg(args, int), total_printed_chars));
+        return (ft_prtint(va_arg(args, int), char_sum));
     else if (f == 'u')
-        return (ft_prtunsint(va_arg(args, unsigned int), total_printed_chars));
+        return (ft_prtunsint(va_arg(args, unsigned int), char_sum));
     else if (f == 'x' || f == 'X')
-        return (ft_prthex(va_arg(args, unsigned int), total_printed_chars, f));
+        return (ft_prthex(va_arg(args, unsigned int), char_sum, f));
     else if (f == '%')
     {
         write(1, "%", 1);
@@ -25,25 +25,25 @@ int conv_case(char f, va_list args, int *total_printed_chars)
 int ft_printf(const char *f, ...)
 {
     va_list args;
-    int total_printed_chars;
+    int char_sum;
     int i;
 
     va_start(args, f);
-    total_printed_chars = 0;
+    char_sum = 0;
     i = 0;
     while (f[i])
     {
         if (f[i] == '%')
-            total_printed_chars += conv_case(f[++i], args, &total_printed_chars);
+            char_sum += conv_case(f[++i], args, &char_sum);
         else
         {
             write(1, &f[i], 1);
-            total_printed_chars++;
+            char_sum++;
         }
         i++;
     }
     va_end(args);
-    return (total_printed_chars);
+    return (char_sum);
 }
 
 #include <stdio.h>
