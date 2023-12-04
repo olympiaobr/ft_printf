@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olobresh <olobresh@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 10:38:07 by olobresh          #+#    #+#             */
+/*   Updated: 2023/12/04 17:11:04 by olobresh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -9,11 +21,11 @@
 # include <string.h>
 # include <limits.h>
 
-void	ft_prtchar(char character, int *len);
+void	ft_prtchar(char c, int *len);
 void	ft_prtstr(char *str, int *len);
 void	ft_prtint(int nb, int *len);
-void	ft_prtunsint(unsigned int nbr, int *len);
-int		ft_prthex(unsigned long long hx, char *base);
+void	ft_prtunsint(unsigned int nb, int *len);
+int		ft_prthex(unsigned long long hx, char *b, int *prt_chrs);
 void	ft_prtptr(void *ptr, int *len);
 
 int		ft_printf(const char *f, ...);

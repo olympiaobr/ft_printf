@@ -1,33 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_prtptr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olobresh <olobresh@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 16:29:03 by olobresh          #+#    #+#             */
+/*   Updated: 2023/12/04 16:42:04 by olobresh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-/* ooold void ft_prtptr(void *ptr, int *len)
+void	ft_prtptr(void *ptr, int *len)
 {
-    unsigned long long a;
+	unsigned long long	a;
 
-    ft_prtstr("0x", len);
-
-    if (ptr == NULL)
-    {
-        ft_prtstr("0", len);
-    }
-    else
-    {
-        a = (unsigned long long)ptr;
-        *len += ft_prthex(a, "0123456789abcdef");
-    }
-}
-*/
-//better one?
-void ft_prtptr(void *ptr, int *len)
-{
-    unsigned long long a;
-
-    if (!ptr)
-    {
-        ft_prtstr("(nil)", len);
-        return;
-    }
-    ft_prtstr("0x", len);
-    a = (unsigned long long)ptr;
-    *len += ft_prthex(a, "0123456789abcdef");
+	if (!ptr)
+	{
+		ft_prtstr("(nil)", len);
+		return ;
+	}
+	a = (unsigned long long)ptr;
+	*len += ft_prthex(a, "0123456789abcdef", len);
 }
