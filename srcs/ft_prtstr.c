@@ -12,16 +12,18 @@
 
 #include "ft_printf.h"
 
-void	ft_prtstr(char *str, int *len)
+int ft_prtstr(char *str, int *l)
 {
-	int	i;
+    int i;
 
-	if (str == NULL)
-		ft_prtstr("(null)", len);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_prtchar(str[i], len);
-		i++;
-	}
+    i = 0;
+    if (!str)
+    {
+        str = "(null)";
+    }
+    while (str[i] != '\0') {
+        ft_prtchar(str[i], l);
+        i++;
+    }
+    return (l);
 }

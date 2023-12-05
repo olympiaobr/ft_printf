@@ -12,13 +12,24 @@
 
 #include "ft_printf.h"
 
-int	ft_prthex(unsigned long long hx, char *b, int *prt_chrs)
+int ft_prthex(unsigned long long hx, char f, int *prt_chrs)
 {
-	if (hx >= 16)
-	{
-		*prt_chrs = ft_prthex(hx / 16, b, prt_chrs);
-	}
-	write(1, &b[hx % 16], 1);
-	(*prt_chrs)++;
-	return (1);
+    char *hx_b;
+    char c;
+    int i;
+
+    hx_b = "0123456789abcdef";
+    if (hx >= 16)
+    {
+        *prt_chrs += ft_prthex(hx / 16, f, prt_chrs);
+    }
+    i = hx % 16;
+    c = hx_b[i];
+    if (f == 'X' && c >= 'a' && c <= 'f')
+    {
+        c -= 32;
+    }
+    write(1, &c, 1);
+    (*prt_chrs)++;
+    return (1);
 }

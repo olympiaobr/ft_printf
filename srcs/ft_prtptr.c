@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
-void	ft_prtptr(void *ptr, int *len)
+int ft_prtptr(void *ptr, int *len)
 {
-	unsigned long long	a;
+    unsigned long long ptr_a;
 
-	if (!ptr)
-	{
-		ft_prtstr("(nil)", len);
-		return ;
-	}
-	a = (unsigned long long)ptr;
-	*len += ft_prthex(a, "0123456789abcdef", len);
+    if (!ptr)
+    {
+        return (ft_prtstr("(nil)", len));
+    }
+    ptr_a = (unsigned long long)ptr;
+    *len += ft_prtstr("0x", len);
+    return (ft_prthex(ptr_a, 'x', len));
 }
