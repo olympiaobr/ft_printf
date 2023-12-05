@@ -25,7 +25,7 @@ void	conv_case(char f, va_list args, int *char_sum)
 	else if (f == 'u')
 		(ft_prtunsint(va_arg(args, unsigned int), char_sum));
 	else if (f == 'x' || f == 'X')
-		(ft_prthex(va_arg(args, unsigned int), "0123456789abcdef", char_sum));
+		(ft_prthex(va_arg(args, unsigned int), f, char_sum));
 	else if (f == '%')
 	{
 		write(1, "%", 1);

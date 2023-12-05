@@ -22,11 +22,11 @@
 # include <limits.h>
 
 void	ft_prtchar(char c, int *len);
-void	ft_prtstr(char *str, int *len);
+int		ft_prtstr(char *str, int *len);
 void	ft_prtint(int nb, int *len);
 void	ft_prtunsint(unsigned int nb, int *len);
-int		ft_prthex(unsigned long long hx, char *b, int *prt_chrs);
-void	ft_prtptr(void *ptr, int *len);
+int		ft_prthex(unsigned long long hx, char f, int *prt_chrs);
+int		ft_prtptr(void *ptr, int *len);
 
 int		ft_printf(const char *f, ...);
 
