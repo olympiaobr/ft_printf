@@ -6,7 +6,7 @@
 /*   By: olobresh <olobresh@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:52:30 by olobresh          #+#    #+#             */
-/*   Updated: 2023/12/04 17:06:38 by olobresh         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:19:49 by olobresh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	conv_case(char f, va_list args, int *char_sum)
 	else if (f == 'p')
 		(ft_prtptr(va_arg(args, void *), char_sum));
 	else if (f == 'd' || f == 'i')
-		(ft_prtint(va_arg(args, unsigned int), char_sum));
+		(ft_prtint(va_arg(args, int), char_sum));
 	else if (f == 'u')
 		(ft_prtunsint(va_arg(args, unsigned int), char_sum));
 	else if (f == 'x' || f == 'X')

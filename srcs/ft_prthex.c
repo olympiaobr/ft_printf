@@ -28,5 +28,5 @@ int	ft_prthex(unsigned long long hx, char f, int *prt_chrs)
 	i = hx % 16;
 	write(1, &hx_b[i], 1);
 	(*prt_chrs)++;
-	return (1);
+	return (*prt_chrs);
 }
