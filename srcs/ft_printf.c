@@ -39,20 +39,18 @@ int	ft_printf(const char *f, ...)
 	int		char_sum;
 	int		i;
 
+	if(!f)
+		return (-1);
 	va_start(args, f);
 	char_sum = 0;
 	i = 0;
 	while (f[i])
 	{
-		if (f[i] == '%')
-		{
-			i++;
+		if (f[i] == '%' && f[++i])
 			conv_case(f[i], args, &char_sum);
-		}
-		else
+		else if (f[i])
 		{
-			write(1, &f[i], 1);
-			char_sum++;
+			ft_prtchar(f[i], &char_sum);
 		}
 		i++;
 	}
